@@ -1,14 +1,18 @@
-﻿using System;
+﻿using FinancialFileManager.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace FinancialFileManager.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             return View();
@@ -43,8 +47,24 @@ namespace FinancialFileManager.Controllers
                 if (file.ContentLength > 0)
                 {
                     var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine("C:\\Arquivos", fileName);
-                    file.SaveAs(path);
+                    var arquivo = new Arquivo();
+                    arquivo.DataHora = DateTime.Now;
+                    arquivo.Nome = fileName;
+                    arquivo.UsuarioId = 1;
+
+                    using (StreamReader sr = new StreamReader(file.InputStream, System.Text.Encoding.GetEncoding(850)))
+                    {
+                        while (!sr.EndOfStream)
+                        {
+                            var linha = new Linha();
+                            linha.ArquivoId = arquivo.ArquivoId;
+                            linha.Conteudo = sr.ReadLine();
+                            db.Linha.Add(linha);
+                        }
+                    }
+
+                    db.Arquivo.Add(arquivo);
+                    db.SaveChanges();
                 }
                 ViewBag.Message = "Upload successful";
                 return RedirectToAction("Index");
