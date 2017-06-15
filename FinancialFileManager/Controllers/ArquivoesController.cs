@@ -33,6 +33,15 @@ namespace FinancialFileManager.Controllers
             {
                 return HttpNotFound();
             }
+
+            var linhas = db.Linha.Where(a => a.ArquivoId == arquivo.ArquivoId).ToList();
+            ViewBag.Conteudo = String.Empty;
+
+            foreach (var item in linhas)
+            {
+                ViewBag.Conteudo += item.Conteudo + "\n";
+            }
+
             return View(arquivo);
         }
 
@@ -77,7 +86,7 @@ namespace FinancialFileManager.Controllers
             catch
             {
                 ViewBag.Message = "Upload failed";
-                return RedirectToAction("Uploads");
+                return RedirectToAction("Index");
             }
         }
 
@@ -99,18 +108,18 @@ namespace FinancialFileManager.Controllers
         // POST: Arquivoes/Edit/5
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ArquivoId,DataHora,Nome,UsuarioId")] Arquivo arquivo)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(arquivo).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(arquivo);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit(Arquivo arquivo)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(arquivo).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(arquivo);
+        //}
 
         // GET: Arquivoes/Delete/5
         public ActionResult Delete(int? id)

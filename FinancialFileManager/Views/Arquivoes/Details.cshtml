@@ -11,7 +11,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.DataHora)
+            Data / Hora
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Nome)
+            Nome do arquivo
         </dt>
 
         <dd>
@@ -27,16 +27,22 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.UsuarioId)
+            Conteúdo
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.UsuarioId)
-        </dd>
+        @*<dt>
+                @Html.DisplayNameFor(model => model.UsuarioId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UsuarioId)
+            </dd>*@
 
     </dl>
+    
 </div>
+<textarea>@ViewBag.conteudo</textarea>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ArquivoId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ArquivoId }) |*@
+    @Html.ActionLink("Voltar", "Index")
 </p>

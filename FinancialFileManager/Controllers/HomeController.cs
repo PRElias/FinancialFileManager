@@ -15,7 +15,15 @@ namespace FinancialFileManager.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            if (Request.IsAuthenticated)
+            {
+                return View("Blank");
+            }
+            else
+            {
+                return View();
+            }
+
         }
 
         public ActionResult About()
