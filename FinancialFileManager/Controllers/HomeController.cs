@@ -32,49 +32,49 @@ namespace FinancialFileManager.Controllers
             return View();
         }
 
-        public ActionResult Upload()
-        {
-            ViewBag.Message = "Escolha o arquivo";
+        //public ActionResult Upload()
+        //{
+        //    ViewBag.Message = "Escolha o arquivo";
 
-            return View();
-        }
+        //    return View();
+        //}
 
-        [HttpPost]
-        public ActionResult Upload(HttpPostedFileBase file)
-        {
-            try
-            {
-                if (file.ContentLength > 0)
-                {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var arquivo = new Arquivo();
-                    arquivo.DataHora = DateTime.Now;
-                    arquivo.Nome = fileName;
-                    arquivo.UsuarioId = 1;
+        //[HttpPost]
+        //public ActionResult Upload(HttpPostedFileBase file)
+        //{
+        //    try
+        //    {
+        //        if (file.ContentLength > 0)
+        //        {
+        //            var fileName = Path.GetFileName(file.FileName);
+        //            var arquivo = new Arquivo();
+        //            arquivo.DataHora = DateTime.Now;
+        //            arquivo.Nome = fileName;
+        //            arquivo.UsuarioId = 1;
 
-                    using (StreamReader sr = new StreamReader(file.InputStream, System.Text.Encoding.GetEncoding(850)))
-                    {
-                        while (!sr.EndOfStream)
-                        {
-                            var linha = new Linha();
-                            linha.ArquivoId = arquivo.ArquivoId;
-                            linha.Conteudo = sr.ReadLine();
-                            db.Linha.Add(linha);
-                        }
-                    }
+        //            using (StreamReader sr = new StreamReader(file.InputStream, System.Text.Encoding.GetEncoding(850)))
+        //            {
+        //                while (!sr.EndOfStream)
+        //                {
+        //                    var linha = new Linha();
+        //                    linha.ArquivoId = arquivo.ArquivoId;
+        //                    linha.Conteudo = sr.ReadLine();
+        //                    db.Linha.Add(linha);
+        //                }
+        //            }
 
-                    db.Arquivo.Add(arquivo);
-                    db.SaveChanges();
-                }
-                ViewBag.Message = "Upload successful";
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                ViewBag.Message = "Upload failed";
-                return RedirectToAction("Uploads");
-            }
-        }
+        //            db.Arquivo.Add(arquivo);
+        //            db.SaveChanges();
+        //        }
+        //        ViewBag.Message = "Upload successful";
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        ViewBag.Message = "Upload failed";
+        //        return RedirectToAction("Uploads");
+        //    }
+        //}
 
         public ActionResult Downloads()
         {
