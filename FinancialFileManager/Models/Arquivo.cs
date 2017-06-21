@@ -15,5 +15,7 @@ namespace FinancialFileManager.Models
         public DateTime DataHora { get; set; }
         public string Nome { get; set; }
         public int UsuarioId { get; set; }
+        public bool TipoDeQuebra { get; set; }
+        public Caracteres Caractere { get; set; }
     }
 }

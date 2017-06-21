@@ -32,5 +32,7 @@ namespace FinancialFileManager.Models
 
         public System.Data.Entity.DbSet<FinancialFileManager.Models.Arquivo> Arquivo { get; set; }
         public System.Data.Entity.DbSet<FinancialFileManager.Models.Linha> Linha { get; set; }
+        public System.Data.Entity.DbSet<FinancialFileManager.Models.Template> Template { get; set; }
+        public System.Data.Entity.DbSet<FinancialFileManager.Models.Campo> Campo { get; set; }
     }
 }

@@ -191,15 +191,20 @@
     <Compile Include="Controllers\ArquivoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TemplatesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Arquivo.cs" />
+    <Compile Include="Models\Campo.cs" />
+    <Compile Include="Models\Caracteres.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Linha.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Template.cs" />
+    <Compile Include="Models\TipodeCampo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -563,6 +568,11 @@
     <Content Include="Views\Arquivoes\Index.cshtml" />
     <Content Include="Views\Arquivoes\Upload.cshtml" />
     <Content Include="Views\Home\Blank.cshtml" />
+    <Content Include="Views\Templates\Create.cshtml" />
+    <Content Include="Views\Templates\Delete.cshtml" />
+    <Content Include="Views\Templates\Details.cshtml" />
+    <Content Include="Views\Templates\Edit.cshtml" />
+    <Content Include="Views\Templates\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
