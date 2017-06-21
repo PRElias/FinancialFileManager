@@ -13,7 +13,6 @@ namespace FinancialFileManager.Controllers
     public class ArquivoesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        protected UserManager<ApplicationUser> UserManager { get; set; }
 
         // GET: Arquivoes
         public ActionResult Index()

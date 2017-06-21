@@ -4,9 +4,14 @@
     ViewBag.Title = "Arquivos";
 }
 
-<p>
-    @Html.ActionLink("Incluir novo", "Create")
-</p>
+<div class="container">
+    <div class="row" style="margin-top: 10px">
+        <p>
+            @Html.ActionLink("Inserir novo", "Create", null, new { @class = "btn btn-primary" })
+        </p>
+    </div>
+</div>
+
 <table class="display" id="tabela">
     <thead>
         <tr>
@@ -19,7 +24,9 @@
             <th>
                 Usuário de criação
             </th>
-            <th>Ações</th>
+            <th>
+                Ações
+            </th>
         </tr>
     </thead>
     <tbody>

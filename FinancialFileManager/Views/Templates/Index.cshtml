@@ -5,12 +5,11 @@
 }
 
 <div class="container">
-    <div class="row">
+    <div class="row" style="margin-top: 10px">
         <p>
-            @Html.ActionLink("Inserir novo", "Create")
+            @Html.ActionLink("Inserir novo", "Create", null, new { @class = "btn btn-primary" })
         </p>
     </div>
-
 </div>
 
 <table class="display" id="tabela">
@@ -23,9 +22,11 @@
                 Data da criação
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UsuarioCriacaoId)
+                Usuário de criação
             </th>
-            <th></th>
+            <th>
+                Ações
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -40,12 +41,12 @@
                     @Html.DisplayFor(modelItem => item.DataCriacao)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.UsuarioCriacaoId)
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.TemplateId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.TemplateId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.TemplateId })
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.TemplateId }) |
+                    @Html.ActionLink("Apagar", "Delete", new { id = item.TemplateId })
                 </td>
             </tr>
         }

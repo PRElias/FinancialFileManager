@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using FinancialFileManager.Models;
+using Microsoft.AspNet.Identity;
 
 namespace FinancialFileManager.Controllers
 {
@@ -17,7 +15,7 @@ namespace FinancialFileManager.Controllers
         // GET: Templates
         public ActionResult Index()
         {
-            return View(db.Template.ToList());
+            return View(db.Template.Include("ApplicationUser").ToList());
         }
 
         // GET: Templates/Details/5
@@ -50,6 +48,8 @@ namespace FinancialFileManager.Controllers
         {
             if (ModelState.IsValid)
             {
+                template.UsuarioId = User.Identity.GetUserId();
+                template.DataCriacao = DateTime.Now;
                 db.Template.Add(template);
                 db.SaveChanges();
                 return RedirectToAction("Index");

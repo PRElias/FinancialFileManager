@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 
 namespace FinancialFileManager.Models
@@ -14,6 +12,10 @@ namespace FinancialFileManager.Models
         public int TemplateId { get; set; }
         public string Apelido { get; set; }
         public DateTime DataCriacao { get; set; }
-        public int UsuarioCriacaoId { get; set; }
+
+        [MaxLength(128), ForeignKey("ApplicationUser")]
+        public virtual string UsuarioId { get; set; }
+
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }
