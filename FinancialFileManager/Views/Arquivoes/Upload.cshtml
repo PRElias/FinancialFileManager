@@ -4,17 +4,15 @@
 }
 
 @using (Html.BeginForm("Upload", "Arquivoes", FormMethod.Post,
-                new { enctype = "multipart/form-data" }))
+                                        new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <div class="container">
         <fieldset>
             <legend>Indique um arquivo</legend>
-            <div class="row editor-field">
+            <div class="row col-md-12">
                 @Html.TextBox("file", "", new { type = "file" })
-            </div>
-            <div class="row editor-field">
-                <input type="submit" value="Confirmar" />
+                <input type="submit" value="Confirmar" class="btn btn-default" />
             </div>
         </fieldset>
     </div>

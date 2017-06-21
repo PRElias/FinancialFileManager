@@ -46,7 +46,7 @@ namespace FinancialFileManager.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TemplateId,Apelido,DataCriacao,UsuarioCriacaoId")] Template template)
+        public ActionResult Create(Template template)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace FinancialFileManager.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TemplateId,Apelido,DataCriacao,UsuarioCriacaoId")] Template template)
+        public ActionResult Edit(Template template)
         {
             if (ModelState.IsValid)
             {

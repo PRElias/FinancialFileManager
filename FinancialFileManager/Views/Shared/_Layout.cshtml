@@ -30,6 +30,8 @@
                     { <li>@Html.ActionLink("Contato", "Contact", "Home")</li> }
                     @if (Request.IsAuthenticated)
                     { <li>@Html.ActionLink("Arquivos", "Index", "Arquivoes")</li> }
+                    @if (Request.IsAuthenticated)
+                    { <li>@Html.ActionLink("Templates", "Index", "Templates")</li> }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -38,7 +40,7 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+        <footer class="navbar-fixed-bottom">
             <p>&copy; @DateTime.Now.Year - Financial File Manager</p>
         </footer>
     </div>

@@ -1,45 +1,53 @@
 ﻿@model IEnumerable<FinancialFileManager.Models.Template>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Template";
 }
 
-<h2>Index</h2>
+<div class="container">
+    <div class="row">
+        <p>
+            @Html.ActionLink("Inserir novo", "Create")
+        </p>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Apelido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataCriacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UsuarioCriacaoId)
-        </th>
-        <th></th>
-    </tr>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Apelido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataCriacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UsuarioCriacaoId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TemplateId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TemplateId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TemplateId })
-        </td>
-    </tr>
-}
+<table class="display" id="tabela">
+    <thead>
+        <tr>
+            <th>
+                Nome do Template
+            </th>
+            <th>
+                Data da criação
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioCriacaoId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
 
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apelido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataCriacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsuarioCriacaoId)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TemplateId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.TemplateId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TemplateId })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
