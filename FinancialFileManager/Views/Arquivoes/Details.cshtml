@@ -1,10 +1,8 @@
 ﻿@model FinancialFileManager.Models.Arquivo
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes";
 }
-
-<h2>Details</h2>
 
 <div>
     <h4>Arquivo</h4>
@@ -25,24 +23,20 @@
         <dd>
             @Html.DisplayFor(model => model.Nome)
         </dd>
-
+        <dt>
+            Usuário de criação
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.UserName)
+        </dd>
         <dt>
             Conteúdo
         </dt>
-
-        @*<dt>
-                @Html.DisplayNameFor(model => model.UsuarioId)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.UsuarioId)
-            </dd>*@
-
     </dl>
     
 </div>
 <textarea>@ViewBag.conteudo</textarea>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.ArquivoId }) |*@
-    @Html.ActionLink("Voltar", "Index")
+    @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
 </p>

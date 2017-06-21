@@ -1,24 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FinancialFileManager.Models;
 using System.IO;
+using Microsoft.AspNet.Identity;
 
 namespace FinancialFileManager.Controllers
 {
     public class ArquivoesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        protected UserManager<ApplicationUser> UserManager { get; set; }
 
         // GET: Arquivoes
         public ActionResult Index()
         {
-            return View(db.Arquivo.ToList());
+            return View(db.Arquivo.Include("ApplicationUser").ToList());
         }
 
         // GET: Arquivoes/Details/5
@@ -64,7 +64,8 @@ namespace FinancialFileManager.Controllers
                     var arquivo = new Arquivo();
                     arquivo.DataHora = DateTime.Now;
                     arquivo.Nome = fileName;
-                    arquivo.UsuarioId = 1;
+                    arquivo.UsuarioId = User.Identity.GetUserId();
+
 
                     using (StreamReader sr = new StreamReader(file.InputStream, System.Text.Encoding.GetEncoding(850)))
                     {
