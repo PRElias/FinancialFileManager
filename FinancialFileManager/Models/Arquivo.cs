@@ -12,13 +12,8 @@ namespace FinancialFileManager.Models
         public int ArquivoId { get; set; }
         public DateTime DataHora { get; set; }
         public string Nome { get; set; }
-
         [MaxLength(128), ForeignKey("ApplicationUser")]
         public virtual string UsuarioId { get; set; }
-
         public virtual ApplicationUser ApplicationUser { get; set; }
-
-        public bool TipoDeQuebra { get; set; }
-        public Caracteres Caractere { get; set; }
     }
 }

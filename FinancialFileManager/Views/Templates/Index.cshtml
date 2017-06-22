@@ -25,6 +25,12 @@
                 Usuário de criação
             </th>
             <th>
+                Tipo de quebra
+            </th>
+            <th>
+                Caractere
+            </th>
+            <th>
                 Ações
             </th>
         </tr>
@@ -42,6 +48,12 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoDeQuebra)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Caractere)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.TemplateId }) |

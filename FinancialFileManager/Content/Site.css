@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.top {
+    margin-top: 50px !important;
+}
+
+.ffm-textarea {
+    min-width: 100%;
+}

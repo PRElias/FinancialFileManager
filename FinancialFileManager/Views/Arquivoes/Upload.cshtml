@@ -1,13 +1,8 @@
-﻿
-@{
-    ViewBag.Title = "Upload";
-}
-
-@using (Html.BeginForm("Upload", "Arquivoes", FormMethod.Post,
+﻿@using (Html.BeginForm("Upload", "Arquivoes", FormMethod.Post,
                                         new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    <div class="container">
+    <div class="container top">
         <fieldset>
             <legend>Indique um arquivo</legend>
             <div class="row col-md-12">
